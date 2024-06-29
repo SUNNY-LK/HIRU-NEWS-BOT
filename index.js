@@ -57,7 +57,7 @@ const request = require('@cypress/request');
   
  async function news() { 
   
-     let response = await fetch('https://hirunews.aquaapk-dl.repl.co/api/latest'); 
+     let response = await fetch('https://vajiraapi-dc47c5d54043.herokuapp.com/details/hirunews'); 
      let data = await response.json(); 
 let mg =`*${data.title}* 
 ●━━━━━━━━━━━━━━━━━━━━━●  
@@ -81,7 +81,7 @@ ${data.desc}
   
      if (!newss) { 
          await new news1({ id: '123', newsid: data.id, events:'true' }).save() 
-           await session.sendMessage("120363162305531586@g.us",{image:{url: data.image}, caption:mg},{ ephemeralExpiration: WA_DEFAULT_EPHEMERAL })
+           await session.sendMessage("120363209396776385@g.us",{image:{url: data.image}, caption:mg},{ ephemeralExpiration: WA_DEFAULT_EPHEMERAL })
      } else { 
          if(newss.newsid == data.id )  
           { 
@@ -89,7 +89,7 @@ ${data.desc}
           } 
           else{ 
              await news1.updateOne({ id: '123' }, { newsid : data.id, events:'true'}) 
-             await session.sendMessage("120363162305531586@g.us",{image:{url: data.image}, caption:mg},{ ephemeralExpiration: WA_DEFAULT_EPHEMERAL })
+             await session.sendMessage("120363209396776385@g.us",{image:{url: data.image}, caption:mg},{ ephemeralExpiration: WA_DEFAULT_EPHEMERAL })
           } 
   
      } 
